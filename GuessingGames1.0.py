@@ -22,9 +22,9 @@ class GuessGameBox():
     numbermax = int(level["numbermax"])
     randommax = int(level["randommax"])
     number = list(range(1, numbermax+1))
-    print(number)
-    print(numbermax)
-    print(randommax)
+    # print(number)
+    # print(numbermax)
+    # print(randommax)
     lst = []
     lst_n = []
     def main(self):
@@ -48,6 +48,9 @@ class GuessGameBox():
                 start.guess()
         elif n == "2":
             exit
+        else:
+            print("Please Enter 1-2")
+            return start.main()
     def random_list(self):
         rd = random.sample(start.number, start.randommax)
         start.lst = rd
@@ -66,8 +69,7 @@ class GuessGameBox():
     def check(self):
         for i in range(start.randommax):
             if start.lst_n[i] == start.lst[i]:
-                if i == start.randommax:
-                    return i        #ส่งค่ากลับเป็น 0
+                pass
             elif start.lst_n[i] != start.lst[i]:
                 start.lst_n.clear()
                 return start.guess()
