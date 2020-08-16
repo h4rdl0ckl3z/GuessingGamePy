@@ -2,8 +2,12 @@ from configparser import ConfigParser
 import random
 class GuessGameBox():
     config_object = ConfigParser()
-    config_object["EASY"] = {
+    config_object["DEFAULT"] = {
         "numbermax" : "6",
+        "randommax" : "4"
+    }
+    config_object["EASY"] = {
+        "numbermax" : "9",
         "randommax" : "4"
     }
     config_object["NORMAL"] = {
@@ -18,7 +22,7 @@ class GuessGameBox():
         config_object.write(conf)
 
     config_object.read("‪config.ini")
-    level = config_object["EASY"]      #EASY, NORMAL, HARD
+    level = config_object["EASY"]      # DEFAULT, EASY, NORMAL, HARD
     numbermax = int(level["numbermax"])
     randommax = int(level["randommax"])
     number = list(range(1, numbermax+1))
